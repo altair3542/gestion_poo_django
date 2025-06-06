@@ -25,6 +25,7 @@ o usa la opcion de descargar el zip del proyecto.
 ## 2. Crea y activa el entorno virtual
 
 python -m venv venv
+
 venv\Scripts\activate
 
 En caso de tener algun error con la instalacion del entorno virtual (politica de ejecución)
