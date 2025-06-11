@@ -17,7 +17,7 @@ Este es un proyecto Django avanzado orientado a objetos, diseñado para gestiona
 
 ### 1. Clona el proyecto
 
-git clone https://github.com/tu_usuario/sistema-ordenes.git
+git clone https://github.com/altair3542/gestion_poo_django
 cd sistema-ordenes
 
 o usa la opcion de descargar el zip del proyecto.
