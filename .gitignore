@@ -1,0 +1,7 @@
+# Ignorar carpetas de bytecode de Python
+__pycache__/
+**/__pycache__/
+
+# Ignorar ficheros compilados de Python
+*.py[cod]
+*.pyo
