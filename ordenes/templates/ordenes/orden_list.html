@@ -1,0 +1,11 @@
+{% include "ordenes/components/nav_login.html" %}
+
+<h2>Órdenes de Servicio</h2>
+<a href="{% url 'orden_create' %}">Nueva orden</a>
+<ul>
+  {% for orden in ordenes %}
+    <li>
+      <a href="{% url 'orden_detail' orden.pk %}">#{{ orden.id }}</a> - {{ orden.estado }}
+    </li>
+  {% endfor %}
+</ul>
