@@ -1,0 +1,7 @@
+{% include "ordenes/components/nav_login.html" %}
+
+<h2>¿Eliminar esta orden?</h2>
+<form method="post">
+  {% csrf_token %}
+  <button type="submit">Sí, eliminar</button>
+</form>

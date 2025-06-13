@@ -1,0 +1,8 @@
+{% include "ordenes/components/nav_login.html" %}
+
+<h2>{% if object %}Editar{% else %}Nueva{% endif %} Orden</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar</button>
+</form>

@@ -1,0 +1,9 @@
+{% include "ordenes/components/nav_login.html" %}
+
+<h2>Orden #{{ object.id }}</h2>
+<p>{{ object.descripcion }}</p>
+<p>Estado: {{ object.estado }}</p>
+<p>Asignado a: {{ object.tecnico_asignado.username }}</p>
+
+<a href="{% url 'orden_update' object.pk %}">Editar</a>
+<a href="{% url 'orden_delete' object.pk %}">Eliminar</a>
