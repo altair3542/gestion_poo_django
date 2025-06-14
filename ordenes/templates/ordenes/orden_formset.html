@@ -1,0 +1,18 @@
+{% include "ordenes/components/nav_login.html" %}
+
+<h2>Edición masiva de órdenes</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ formset.management_form }}
+  <table>
+    {% for form in formset %}
+      <tr>
+        <td>{{ form.descripcion }}</td>
+        <td>{{ form.estado }}</td>
+        <td>{{ form.comentario_final }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+  <button type="submit">Guardar Cambios</button>
+</form>

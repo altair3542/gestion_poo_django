@@ -37,6 +37,7 @@ class OrdenServicio(models.Model):
         ('en_progreso', 'En Progreso'),
         ('finalizada', 'Finalizada')
     ])
+    comentario_final = models.TextField(blank = True, null = True)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
