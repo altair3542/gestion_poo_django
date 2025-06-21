@@ -1,8 +1,10 @@
-{% include "ordenes/components/nav_login.html" %}
-
+{% extends "ordenes/base.html" %}
+{% block title %}Nueva Orden{% endblock %}
+{% block content %}
 <h2>{% if object %}Editar{% else %}Nueva{% endif %} Orden</h2>
 <form method="post">
   {% csrf_token %}
   {{ form.as_p }}
   <button type="submit">Guardar</button>
 </form>
+{% endblock %}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Gestión de Órdenes{% endblock %}</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 20px;
+    }
+    nav a {
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="{% url 'orden_list' %}">Órdenes</a>
+    <a href="{% url 'orden_create' %}">Nueva orden</a>
+    <a href="{% url 'orden_bulk_edit' %}">Edición masiva</a>
+    {% include "ordenes/components/nav_login.html" %}
+  </nav>
+
+  <hr>
+
+  {% block content %}{% endblock %}
+
+</body>
+</html>

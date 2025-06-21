@@ -1,11 +1,16 @@
-{% include "ordenes/components/nav_login.html" %}
-
+{% extends "ordenes/base.html" %}
+{% block title %}Órdenes de Servicio{% endblock %}
+{% block content %}
+{% load estado_tags %}
 <h2>Órdenes de Servicio</h2>
 <a href="{% url 'orden_create' %}">Nueva orden</a>
 <ul>
   {% for orden in ordenes %}
     <li>
-      <a href="{% url 'orden_detail' orden.pk %}">#{{ orden.id }}</a> - {{ orden.estado }}
+      <a href="{% url 'orden_detail' orden.pk %}">#{{ orden.id }} - {{ orden.estado|formatear_estado}}</a> - {{ orden.estado }}
     </li>
   {% endfor %}
 </ul>
+<h2>ordenes (version tabla)</h2>
+{% mostrar_tabla_ordenes ordenes %}
+{% endblock %}

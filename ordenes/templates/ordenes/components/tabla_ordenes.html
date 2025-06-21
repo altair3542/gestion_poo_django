@@ -1,0 +1,17 @@
+{% load estado_tags %}
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Descripcion</th>
+    <th>Estado</th>
+    <th>Fecha</th>
+  </tr>
+  {% for orden in ordenes %}
+    <tr>
+      <td>{{ orden.id }}</td>
+      <td>{{ orden.descripcion }}</td>
+      <td>{{ orden.estado|formatear_estado }}</td>
+      <td>{{ orden.fecha_creacion|date:"d/m/Y H:i" }}</td>
+    </tr>
+    {% endfor %}
+</table>
