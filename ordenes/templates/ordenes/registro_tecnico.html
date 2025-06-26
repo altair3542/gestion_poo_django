@@ -1,0 +1,13 @@
+{% extends "ordenes/base.html" %}
+{% block title %}Registrar nuevo técnico{% endblock %}
+{% block content %}
+{% load estado_tags %}
+
+<h2>Registrar Nuevo Técnico</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Crear Cuenta</button>
+</form>
+
+{% endblock %}

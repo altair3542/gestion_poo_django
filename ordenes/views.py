@@ -5,7 +5,9 @@ from django.forms import modelformset_factory
 from django.shortcuts import redirect, render
 from .models import OrdenServicio
 from .mixins import TecnicoPropietarioMixin
-from .forms import OrdenServicioForm
+from .forms import OrdenServicioForm, RegistroTecnicoForm
+from django.contrib.auth.models import Group
+from django.contrib.auth import login
 
 # Create your views here.
 
@@ -59,3 +61,22 @@ def ordenes_bulk_edit(request):
         formset = OrdenFormSet(queryset=queryset)
 
     return render(request, 'ordenes/orden_formset.html', {'formset': formset})
+
+def registrar_tecnico(request):
+    if request.method == 'POST':
+        form = RegistroTecnicoForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            perfil = user.perfilusuario
+            perfil.cargo = form.cleaned_data['cargo']
+            perfil.especialidad = form.cleaned_data['especialidad']
+            perfil.save()
+
+            grupo, creado = Group.objects.get_or_create(name=perfil.cargo)
+            user.groups.add(grupo)
+
+            login(request, user)
+            return redirect('orden_list')
+    else:
+        form = RegistroTecnicoForm()
+    return render(request, 'ordenes/registro_tecnico.html', {'form': form})

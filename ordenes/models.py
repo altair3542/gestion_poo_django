@@ -42,3 +42,15 @@ class OrdenServicio(models.Model):
 
     def __str__(self):
         return str(f"Orden #{self.id} - {self.estado}")
+
+class PerfilUsuario(models.Model):
+    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
+    cargo = models.CharField(max_length=100, choices=[
+        ('tecnico', 'Técnico'),
+        ('supervisor', 'Supervisor'),
+    ])
+    especialidad = models.CharField(max_length=100, blank=True, null=True)
+    activo = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(f"{self.usuario.username} ({self.cargo})")
